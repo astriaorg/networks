@@ -41,41 +41,41 @@
   "genesis_time": "2023-09-22T17:22:35.092832Z",
   "initial_height": "0",
   "validators": [
-      {
-        "address": "230592632006DB2733444BB6DE11DB3F4B2F9AE4",
-        "name": "node0",
-        "power": "1",
-        "pub_key": {
-          "type": "tendermint/PubKeyEd25519",
-          "value": "MkFfCdvuQpfMmoQcLCMSv5A/xTxIhg14iuZglzVaWF8="
-        }
-      },
-      {
-        "address": "6F35496BCC8CF0EF9E2AC090FAEF578152549518",
-        "name": "node1",
-        "power": "1",
-        "pub_key": {
-          "type": "tendermint/PubKeyEd25519",
-          "value": "CeKTMbL61MvTZ5hoA0hKL1REQUhejnNhEtKtSbg2Vso="
-        }
-      },
-      {
-        "address": "115F94D8C98FFD73FE65182611140F0EDC7C3C94",
-        "name": "node2",
-        "power": "1",
-        "pub_key": {
-          "type": "tendermint/PubKeyEd25519",
-          "value": "lvQ6hEiSjx5YCGTWn+ROCTxagqHUqAxZCG1+Z5ds2kU="
-        }
-      },
-      {
-        "address": "60B5F4FED5CDE1F43E71CD03A4ACDCABB5724455",
-        "name": "node3",
-        "power": "1",
-        "pub_key": {
-          "type": "tendermint/PubKeyEd25519",
-          "value": "ixbsw2r9ME9ikcWTwWSdtk+AxNNQ4PyzOjNnyiMMe58="
-        }
+    {
+      "address": "230592632006DB2733444BB6DE11DB3F4B2F9AE4",
+      "name": "node0",
+      "power": "1",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "MkFfCdvuQpfMmoQcLCMSv5A/xTxIhg14iuZglzVaWF8="
       }
+    },
+    {
+      "address": "6F35496BCC8CF0EF9E2AC090FAEF578152549518",
+      "name": "node1",
+      "power": "1",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "CeKTMbL61MvTZ5hoA0hKL1REQUhejnNhEtKtSbg2Vso="
+      }
+    },
+    {
+      "address": "115F94D8C98FFD73FE65182611140F0EDC7C3C94",
+      "name": "node2",
+      "power": "1",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "lvQ6hEiSjx5YCGTWn+ROCTxagqHUqAxZCG1+Z5ds2kU="
+      }
+    },
+    {
+      "address": "60B5F4FED5CDE1F43E71CD03A4ACDCABB5724455",
+      "name": "node3",
+      "power": "1",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "ixbsw2r9ME9ikcWTwWSdtk+AxNNQ4PyzOjNnyiMMe58="
+      }
+    }
   ]
 }
