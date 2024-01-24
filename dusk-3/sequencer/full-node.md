@@ -49,6 +49,7 @@ cd cometbft
 git checkout origin/v0.37.x
 export GOPATH=~/go
 make install
+cd ../
 ```
 
 ### Sequencer
@@ -59,6 +60,7 @@ cd astria
 git checkout tags/sequencer-v0.8.0
 cd crates/astria-sequencer/
 cargo build --release
+cd ../../../
 ```
 
 ## Configure
@@ -76,7 +78,6 @@ sed -i'.bak' 's/persistent_peers = ""/persistent_peers = "0b92c85f6d74cbc7fb72d9
 ### Get Genesis File
 
 ```bash
-cd ../../..
 curl -o genesis.json -s https://raw.githubusercontent.com/astriaorg/networks/main/dusk-3/sequencer/genesis.json
 mv genesis.json ~/.cometbft/config/genesis.json
 ```
@@ -90,7 +91,7 @@ mv genesis.json ~/.cometbft/config/genesis.json
 #### From `/home/astria_org`
 
 ```bash
-cp /home/astria_org/astria/crates/astria-sequencer/local.env.example astria-sequencer.env
+cp ~/astria/crates/astria-sequencer/local.env.example /home/astria_org/astria-sequencer.env
 mkdir /home/astria_org/astria_db
 sed -i'.bak' 's/"\/tmp\/astria_db"/"\/home\/astria_org\/astria_db"/g' /home/astria_org/astria-sequencer.env
 ```
@@ -122,7 +123,7 @@ cat << 'EOF' > cometbft.service
 Description=cometbft
 
 [Service]
-ExecStart=/home/astria_org/go/bin/cometbft start --home /home/astria_org/.cometbft
+ExecStart=/home/jordan/go/bin/cometbft start --home /home/jordan/.cometbft
 
 # Restart service on failure
 Restart=on-failure
@@ -133,6 +134,8 @@ EOF
 ```
 
 ### Install and run Sequencer in systemd
+
+Note, sequencer app must be running before starting CometBFT
 
 ```bash
 sudo mv astria-sequencer.service /etc/systemd/system/astria-sequencer.service
