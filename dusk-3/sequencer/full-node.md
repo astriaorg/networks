@@ -1,6 +1,7 @@
-# Fresh VM
+# Running a Dusk 3 Sequencer Full Node
 
-This was tested on a Google Cloud Platform `c3d-standard-4` (4 vCPU, 16GB RAM, 500GB SSD) running `debian-12-bookworm`
+> Note: This was tested on a Google Cloud Platform `c3d-standard-4` (4 vCPU,
+> 16GB RAM, 500GB SSD) running `debian-12-bookworm`.
 
 ## Dependencies
 
