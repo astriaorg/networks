@@ -78,6 +78,11 @@ sed -i'.bak' 's/timeout_commit = "1s"/timeout_commit = "2s"/g' ~/.cometbft/confi
 sed -i'.bak' 's/persistent_peers = ""/persistent_peers = "0b92c85f6d74cbc7fb72d91b14d0dfd504151088@34.94.18.158:26656,8dc97ea4864d163456aec5c7b4a85236a9d96a1c@35.235.84.88:26656,7ff274fea878b88575e2c85a2c7d748bfbc9eb4c@34.94.250.38:26656,4e43cc937c6917ae703229878ad1e73ed737f216@34.94.145.24:26656"/g' ~/.cometbft/config/config.toml
 ```
 
+You may also want to enable other settings within the config.toml, such as
+enabling prometheus metrics. See [CometBFT
+docs](https://docs.cometbft.com/v0.37/core/configuration) for more information
+on configuration.
+
 ### Get Genesis File
 
 ```bash
