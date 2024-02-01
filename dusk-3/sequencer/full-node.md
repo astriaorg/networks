@@ -24,6 +24,8 @@ sudo apt-get install jq -y
 
 Used for CometBFT
 
+> Note: make sure to install go 1.20 
+
 ```bash
 sudo apt install golang -y
 export GOPATH=~/go
@@ -75,6 +77,11 @@ cometbft init
 sed -i'.bak' 's/timeout_commit = "1s"/timeout_commit = "2s"/g' ~/.cometbft/config/config.toml
 sed -i'.bak' 's/persistent_peers = ""/persistent_peers = "0b92c85f6d74cbc7fb72d91b14d0dfd504151088@34.94.18.158:26656,8dc97ea4864d163456aec5c7b4a85236a9d96a1c@35.235.84.88:26656,7ff274fea878b88575e2c85a2c7d748bfbc9eb4c@34.94.250.38:26656,4e43cc937c6917ae703229878ad1e73ed737f216@34.94.145.24:26656"/g' ~/.cometbft/config/config.toml
 ```
+
+You may also want to enable other settings within the config.toml, such as
+enabling prometheus metrics. See [CometBFT
+docs](https://docs.cometbft.com/v0.37/core/configuration) for more information
+on configuration.
 
 ### Get Genesis File
 
@@ -203,3 +210,27 @@ curl -X GET "http://localhost:26657/block?height=60" \
   -H "accept: application/json" -s \
   | jq .result.block_id.hash
 ```
+
+## Via Helm Chart
+
+### Add Astria Helm Charts Repo
+
+```bash
+helm repo add astria https://astriaorg.github.io/dev-cluster/
+```
+
+### Pull values file to use
+
+```bash
+curl -o full-node-values.yaml -s https://raw.githubusercontent.com/astriaorg/networks/main/dusk-3/sequencer/full-node-values.yaml
+```
+
+Note that you may want to edit this values file, by default it assumes you are
+installing somewhere such as a cloud provider that can create PVCs and already
+has default storage classes.
+
+### Install
+
+```bash
+helm install dusk3-full-node astria/astria-sequencer-validator --version 0.9.4 \
+  --namespace astria-dusk3-node --create-namespace -f full-node-values.yaml

@@ -1,0 +1,51 @@
+global:
+  useTTY: false
+  namespace: astria-dusk3-node
+
+config:
+  moniker: dusk3-full-node
+
+  sequencer:
+    genesisAccounts:
+    - address: 3fff1c39b9d163bfb9bcbf9dfea78675f1b4bc2c
+      balance: "340282366920938463463374607431768211455"
+    - address: 2e046327a2ccac7c8f8018ed44e43184b502eb3e
+      balance: "340282366920938463463374607431768211455"
+    - address: 8618a88a4827ad8ffb4a757048d320172f5eb245
+      balance: "340282366920938463463374607431768211455"
+
+  cometBFT:
+    chainId: astria-dusk-3
+    p2p:
+      persistentPeers:
+        - 0b92c85f6d74cbc7fb72d91b14d0dfd504151088@34.94.18.158:26656
+        - 8dc97ea4864d163456aec5c7b4a85236a9d96a1c@35.235.84.88:26656
+        - 7ff274fea878b88575e2c85a2c7d748bfbc9eb4c@34.94.250.38:26656
+        - 4e43cc937c6917ae703229878ad1e73ed737f216@34.94.145.24:26656
+    validators:
+      - name: node0
+        power: '1'
+        address: 230592632006DB2733444BB6DE11DB3F4B2F9AE4
+        pubKey: MkFfCdvuQpfMmoQcLCMSv5A/xTxIhg14iuZglzVaWF8=
+      - name: node1
+        address: 6F35496BCC8CF0EF9E2AC090FAEF578152549518
+        pubKey: CeKTMbL61MvTZ5hoA0hKL1REQUhejnNhEtKtSbg2Vso=
+        power: '1'
+      - name: node2
+        power: '1'
+        address: 115F94D8C98FFD73FE65182611140F0EDC7C3C94
+        pubKey: lvQ6hEiSjx5YCGTWn+ROCTxagqHUqAxZCG1+Z5ds2kU=
+      - name: node3
+        power: '1'
+        address: 60B5F4FED5CDE1F43E71CD03A4ACDCABB5724455
+        pubKey: ixbsw2r9ME9ikcWTwWSdtk+AxNNQ4PyzOjNnyiMMe58=
+
+images:
+  sequencer: ghcr.io/astriaorg/sequencer:0.8.0
+
+storage:
+  enabled: true
+  local: false
+  entities:
+    sequencerSharedStorage:
+      size: 10Gi
