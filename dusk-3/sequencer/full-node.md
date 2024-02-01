@@ -24,6 +24,8 @@ sudo apt-get install jq -y
 
 Used for CometBFT
 
+> Note: make sure to install go 1.20 
+
 ```bash
 sudo apt install golang -y
 export GOPATH=~/go
@@ -203,3 +205,23 @@ curl -X GET "http://localhost:26657/block?height=60" \
   -H "accept: application/json" -s \
   | jq .result.block_id.hash
 ```
+
+## Via Helm Chart
+
+### Add Astria Helm Charts Repo
+
+```bash
+helm repo add astria https://astriaorg.github.io/dev-cluster/
+```
+
+### Pull values file to use
+
+```bash
+curl -o full-node-values.yaml -s https://raw.githubusercontent.com/astriaorg/networks/main/dusk-3/sequencer/full-node-values.yaml
+```
+
+### Install
+
+```bash
+helm install dusk3-full-node astria/astria-sequencer-validator --version 0.9.4 \
+  --namespace astria-dusk3-node --create-namespace -f full-node-values.yaml
