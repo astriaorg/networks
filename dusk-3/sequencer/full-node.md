@@ -220,6 +220,10 @@ helm repo add astria https://astriaorg.github.io/dev-cluster/
 curl -o full-node-values.yaml -s https://raw.githubusercontent.com/astriaorg/networks/main/dusk-3/sequencer/full-node-values.yaml
 ```
 
+Note that you may want to edit this values file, by default it assumes you are
+installing somewhere such as a cloud provider that can create PVCs and already
+has default storage classes.
+
 ### Install
 
 ```bash

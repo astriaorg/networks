@@ -42,3 +42,10 @@ config:
 
 images:
   sequencer: ghcr.io/astriaorg/sequencer:0.8.0
+
+storage:
+  enabled: true
+  local: false
+  entities:
+    sequencerSharedStorage:
+      size: 10Gi
