@@ -15,7 +15,7 @@
       "terminalTotalDifficultyPassed": true,
       "ethash": {},
       "astriaOverrideGenesisExtraData": false,
-      "astriaSequencerInitialHeight": 903,
+      "astriaSequencerInitialHeight": 283,
       "astriaRollupName": "astria-dusk-4-evm",
       "astriaCelestiaInitialHeight": 1423678,
       "astriaCelestiaHeightVariance": 100,

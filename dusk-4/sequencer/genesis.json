@@ -68,31 +68,32 @@
         "accounts": [
           {
             "address": "3fff1c39b9d163bfb9bcbf9dfea78675f1b4bc2c",
-            "balance": 3.402823669209385e+38
+            "balance": 340282366920938463463374607431768211455
+          },
+          {
+            "address": "38ccb8bd2528bce8669ff9e53a5f57c2cd86efb4",
+            "balance": 340282366920938463463374607431768211455
           },
           {
             "address": "2e046327a2ccac7c8f8018ed44e43184b502eb3e",
-            "balance": 3.402823669209385e+38
+            "balance": 340282366920938463463374607431768211455
           },
           {
             "address": "8618a88a4827ad8ffb4a757048d320172f5eb245",
-            "balance": 3.402823669209385e+38
+            "balance": 340282366920938463463374607431768211455
           },
           {
             "address": "0eef997a04cafe529dccaeafa86f70fe327276b1",
-            "balance": 3.402823669209385e+38
+            "balance": 100000000000000000000000000000000000000
           }
         ],
-        "authority_sudo_address": "1c0c490f1b5528d8173c5de46d131160e4b2c0c3",
+        "authority_sudo_address": "b89627d1d7fc8ad0b698bca1938b96ec2c18375d",
         "native_asset_base_denomination": "nria",
         "allowed_fee_assets": [
           "nria"
         ],
-        "ibc_sudo_address": "1c0c490f1b5528d8173c5de46d131160e4b2c0c3",
-        "ibc_relayer_addresses": [
-          "1c0c490f1b5528d8173c5de46d131160e4b2c0c3",
-          "34fec43c7fcab9aef3b3cf8aba855e41ee69ca3a"
-        ],
+        "ibc_sudo_address": "59dd5630cf6cb06c79e56c2070d46e4c14325c3b",
+        "ibc_relayer_addresses": [],
         "ibc_params": {
           "ibc_enabled": true,
           "inbound_ics20_transfers_enabled": true,
