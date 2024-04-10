@@ -60,7 +60,7 @@ cd ../
 ```bash
 git clone https://github.com/astriaorg/astria.git
 cd astria
-git checkout tags/sequencer-v0.11.1
+git checkout tags/sequencer-v0.10.1
 cd crates/astria-sequencer/
 cargo build --release
 cd ../../../
@@ -101,7 +101,7 @@ mv genesis.json ~/.cometbft/config/genesis.json
 #### From `/home/astria_org`
 
 ```bash
-# Note that this .env file has some configuration you may want to change for 
+# Note that this .env file has some configuration you may want to change for
 # production, including options around otel, logging, rpc listening addresses
 cp ~/astria/crates/astria-sequencer/local.env.example /home/astria_org/astria-sequencer.env
 mkdir /home/astria_org/astria_db
@@ -204,7 +204,7 @@ The first sequencer block which has a tx is `232` which has hash
 ```bash
 curl -X GET "https://rpc.sequencer.dusk-3.devnet.astria.org/block?height=232" \
   -H "accept: application/json" -s \
-  | jq .result.block_id.hash 
+  | jq .result.block_id.hash
 ```
 
 ### Check your local node
