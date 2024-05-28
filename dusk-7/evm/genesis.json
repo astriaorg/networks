@@ -1,0 +1,43 @@
+{
+  "config": {
+    "chainId": 912559,
+    "homesteadBlock": 0,
+    "eip150Block": 0,
+    "eip155Block": 0,
+    "eip158Block": 0,
+    "byzantiumBlock": 0,
+    "constantinopleBlock": 0,
+    "petersburgBlock": 0,
+    "istanbulBlock": 0,
+    "berlinBlock": 0,
+    "londonBlock": 0,
+    "terminalTotalDifficulty": 0,
+    "terminalTotalDifficultyPassed": true,
+    "ethash": {},
+    "astriaOverrideGenesisExtraData": false,
+    "astriaSequencerInitialHeight": 24765,
+    "astriaRollupName": "astria-dusk-7-evm",
+    "astriaCelestiaInitialHeight": 1903898,
+    "astriaCelestiaHeightVariance": 15000,
+    "astriaBridgeAddresses": [
+      {
+        "assetDenom": "nria",
+        "assetPrecision": 9,
+        "bridgeAddress": "0x3cabc640b991615e26d1ff93ea872ea1fa1b2027",
+        "startHeight": 1
+      }
+    ],
+    "astriaFeeCollectors": {
+      "1": "0x8096C763cEf6E83C767c395742b4896B6A2e99a3"
+    },
+    "astriaEIP1559Params": {}
+  },
+  "difficulty": "0",
+  "gasLimit": "8000000",
+  "alloc": {
+    "0x4e59b44847b379578588920cA78FbF26c0B4956C": {
+      "balance": "0",
+      "data": "0x7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe03601600081602082378035828234f58015156039578182fd5b8082525050506014600cf3"
+    }
+  }
+}
