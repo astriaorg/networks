@@ -6,6 +6,7 @@ images:
     tag: "0.13.0"
 
 config:
+  moniker: 'fullnode'
   sequencer:
     authoritySudoAddress: c97a5efdc2744b6818b49245a5952d4d644592c1
     ibc:
@@ -57,6 +58,13 @@ config:
         power: '1'
         address: 0DC9BAF2CB94F4897F2A569EF2A33EE1D4E7B50B
         pubKey: E6gYdFSWp8SQYd60JSZBhADZgB8lV8FAbqsmAvX6RPY=
+    p2p:
+      # List of nodes to keep persistent connections to
+      persistentPeers:
+        - f4b8a8dcfc5a142bd00aadab71f39dbfe7091d13@34.94.0.132:26656
+        - ca3bc3562919b82575fe3ac5b11fa5962ce8cd3b@35.236.64.52:26656
+        - 4418000e355967ecc8e03004f5850dfde51c410b@34.94.241.147:26656
+        - 7a117e7906d8428ad20341aca94af03c980c11d8@35.236.32.234:26656
 
 
 storage:
