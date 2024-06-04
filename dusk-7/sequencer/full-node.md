@@ -75,7 +75,7 @@ Timeout commit needs to be set to 2s, and peers are those listed in [peers.txt](
 ```bash
 cometbft init
 sed -i'.bak' 's/timeout_commit = "1s"/timeout_commit = "2s"/g' ~/.cometbft/config/config.toml
-sed -i'.bak' 's/persistent_peers = ""/persistent_peers = ""/g' ~/.cometbft/config/config.toml
+sed -i'.bak' 's/persistent_peers = ""/persistent_peers = "f4b8a8dcfc5a142bd00aadab71f39dbfe7091d13@34.94.0.132:26656, ca3bc3562919b82575fe3ac5b11fa5962ce8cd3b@35.236.64.52:26656,4418000e355967ecc8e03004f5850dfde51c410b@34.94.241.147:26656,7a117e7906d8428ad20341aca94af03c980c11d8@35.236.32.234:26656"/g' ~/.cometbft/config/config.toml
 ```
 
 You may also want to enable other settings within the config.toml, such as
