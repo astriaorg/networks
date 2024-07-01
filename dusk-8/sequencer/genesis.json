@@ -1,0 +1,111 @@
+{
+  "app_hash": "",
+  "app_state": {
+    "native_asset_base_denomination": "nria",
+    "fees": {
+      "transfer_base_fee": 12,
+      "sequence_base_fee": 32,
+      "sequence_byte_cost_multiplier": 1,
+      "init_bridge_account_base_fee": 48,
+      "bridge_lock_byte_cost_multiplier": 1,
+      "bridge_sudo_change_fee": 24,
+      "ics20_withdrawal_base_fee": 24
+    },
+    "allowed_fee_assets": [
+    ],
+    "ibc_params": {
+      "ibc_enabled": true,
+      "inbound_ics20_transfers_enabled": true,
+      "outbound_ics20_transfers_enabled": true
+    },
+    "address_prefixes": {
+      "base": "astria"
+    },
+    "accounts": [
+      {
+        "address": { "bech32m": "astria1c220qfmjrwqlk939ca5a5z2rjxryyr9m3ah8gl" },
+        "balance": 333333333333333333
+      },
+      {
+        "address": { "bech32m": "astria16rgmx2s86kk2r69rhjnvs9y44ujfhadc7yav9a" },
+        "balance": 340282366920938463463374607431768211455
+      },
+      {
+        "address": { "bech32m": "astria1475jkpuvznd44szgfz8wwdf9w6xh5dx9jwqgvz" },
+        "balance": 333333333333333333
+      },
+      {
+        "address": { "bech32m": "astria1lhpxecq5ffhq68dgu9s8y2g5h53jqw5cvudrkk" },
+        "balance": 333333333333333333
+      },
+      {
+        "address": { "bech32m": "astria1lm45urgugesyhaymn68xww0m6g49zreqa32w7p" },
+        "balance": 60
+      }
+    ],
+    "authority_sudo_address": { "bech32m": "astria1e9q7egqgz8rz6aej8nr57swqgaeujhz04vd9q5" },
+    "ibc_sudo_address": { "bech32m": "astria1y2250n7jwv9ejfuqflt53v0p7skq6hhvvrcrey" },
+    "ibc_relayer_addresses": [
+    ]
+  },
+  "chain_id": "astria-dusk-8",
+  "consensus_params": {
+    "block": {
+      "max_bytes": " 1048576",
+      "max_gas": "-1"
+    },
+    "evidence": {
+      "max_age_duration": "1209600000000000",
+      "max_age_num_blocks": " 4000000",
+      "max_bytes": "1048576"
+    },
+    "validator": {
+      "pub_key_types": [
+        "ed25519"
+      ]
+    },
+    "version": {
+      "app": "0"
+    }
+  },
+  "genesis_time": "2024-05-20T00:49:11.964127Z",
+  "initial_height": "0",
+  "validators": [
+      {
+        "address": "FDDBAF2EFB176DD25A3EDDE9106E78D329A38562",
+        "name": "node0",
+        "power": "1",
+        "pub_key": {
+          "type": "tendermint/PubKeyEd25519",
+          "value": "U46eweNkf5swUyu45cK0qABsaxFoPL7OK+Hqqahr8fg="
+        }
+      },
+      {
+        "address": "2F5AEE50975F56F59C4C5248277CB1E4A8320593",
+        "name": "node1",
+        "power": "1",
+        "pub_key": {
+          "type": "tendermint/PubKeyEd25519",
+          "value": "pJeqSiLKgjKHYIKSCxEGeJiMhhlLDC4SoE3Pb1Noi7I="
+        }
+      },
+      {
+        "address": "C8FAD5B264F7D5B5446978E96AEC3549E41F1353",
+        "name": "node2",
+        "power": "1",
+        "pub_key": {
+          "type": "tendermint/PubKeyEd25519",
+          "value": "/zck8pXQM9AzdBaDsfaoTkRxQgQQyGoCC3q1Ohirlbc="
+        }
+      },
+      {
+        "address": "0DC9BAF2CB94F4897F2A569EF2A33EE1D4E7B50B",
+        "name": "node3",
+        "power": "1",
+        "pub_key": {
+          "type": "tendermint/PubKeyEd25519",
+          "value": "E6gYdFSWp8SQYd60JSZBhADZgB8lV8FAbqsmAvX6RPY="
+        }
+      }
+  ]
+}

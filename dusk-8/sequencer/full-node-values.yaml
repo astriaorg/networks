@@ -1,0 +1,96 @@
+global:
+  useTTY: true
+
+images:
+  sequencer:
+    tag: "0.14.0"
+
+moniker: "fullnode"
+genesis:
+  chainId: astria-dusk-8
+  genesisTime: "2024-05-20T00:49:11.964127Z"
+  # dusk-8-sudo-key-pkey
+  authoritySudoAddress: astria1e9q7egqgz8rz6aej8nr57swqgaeujhz04vd9q5
+  ibc:
+    enabled: true
+    inboundEnabled: true
+    outboundEnabled: true
+    # dusk-8-ibc-sudo-pkey
+    sudoAddress: astria1y2250n7jwv9ejfuqflt53v0p7skq6hhvvrcrey
+    relayerAddresses: []
+  genesisAccounts:
+    # Wallet address used for composer on EVM
+    # GCP secret "dusk-8-evm-composer-pkey"
+    - address: astria1c220qfmjrwqlk939ca5a5z2rjxryyr9m3ah8gl
+      balance: "333333333333333333"
+    # GCP Secret "dusk-8-funded-pkey"
+    - address: astria16rgmx2s86kk2r69rhjnvs9y44ujfhadc7yav9a
+      balance: "340282366920938463463374607431768211455"
+    # Used for sequencer faucet
+    # GCP Secret "dusk-8-seq-faucet-pkey"
+    - address: astria1475jkpuvznd44szgfz8wwdf9w6xh5dx9jwqgvz
+      balance: "333333333333333333"
+    # Used for funding RaaS accounts
+    # GCP secret "dusk-8-raas-seq-pkey" on raas-dusk-8 project
+    - address: astria1lhpxecq5ffhq68dgu9s8y2g5h53jqw5cvudrkk
+      balance: "333333333333333333"
+    # Account to be utilized as bridge account for EVM
+    # GCP Secret "dusk-8-evm-native-bridge-pkey"
+    - address: astria1lm45urgugesyhaymn68xww0m6g49zreqa32w7p
+      balance: "60"
+  validators:
+    - name: node0
+      power: '1'
+      address: FDDBAF2EFB176DD25A3EDDE9106E78D329A38562
+      pubKey: U46eweNkf5swUyu45cK0qABsaxFoPL7OK+Hqqahr8fg=
+    - name: node1
+      address: 2F5AEE50975F56F59C4C5248277CB1E4A8320593
+      pubKey: pJeqSiLKgjKHYIKSCxEGeJiMhhlLDC4SoE3Pb1Noi7I=
+      power: '1'
+    - name: node2
+      power: '1'
+      address: C8FAD5B264F7D5B5446978E96AEC3549E41F1353
+      pubKey: /zck8pXQM9AzdBaDsfaoTkRxQgQQyGoCC3q1Ohirlbc=
+    - name: node3
+      power: '1'
+      address: 0DC9BAF2CB94F4897F2A569EF2A33EE1D4E7B50B
+      pubKey: E6gYdFSWp8SQYd60JSZBhADZgB8lV8FAbqsmAvX6RPY=
+        
+sequencer:
+  metrics:
+    enabled: false
+  otel:
+    enabled: false
+
+cometbft:
+  config:
+    logLevel: "debug"
+    p2p:
+      laddr: "tcp://0.0.0.0"
+      seeds: []
+      # List of nodes to keep persistent connections to
+      persistentPeers:
+        - f4b8a8dcfc5a142bd00aadab71f39dbfe7091d13@35.235.122.184:26656
+        - 4418000e355967ecc8e03004f5850dfde51c410b@34.102.111.186:26656
+        - ca3bc3562919b82575fe3ac5b11fa5962ce8cd3b@34.94.128.197:26656
+        - 7a117e7906d8428ad20341aca94af03c980c11d8@34.102.73.190:26656
+
+sequencer-relayer:
+  enabled: true
+
+secretProvider:
+  enabled: false
+
+storage:
+  enabled: false
+
+serviceMonitor:
+  enabled: false
+
+ingress:
+  p2p:
+    enabled: false
+  rpc:
+    enabled: false
+  grpc:
+    enabled: false
