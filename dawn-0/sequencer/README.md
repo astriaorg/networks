@@ -1,4 +1,4 @@
-# Astria Dusknet 10 Sequencer
+# Astria Dawn 0 Sequencer
 
 ## Software Versions
 

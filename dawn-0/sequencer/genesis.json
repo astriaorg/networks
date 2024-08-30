@@ -52,7 +52,7 @@
     },
     "ibc_relayer_addresses": []
   },
-  "chain_id": "astria-dawn-0",
+  "chain_id": "dawn-0",
   "consensus_params": {
     "block": {
       "max_bytes": " 1048576",
@@ -72,7 +72,7 @@
       "app": "0"
     }
   },
-  "genesis_time": "2024-08-29T00:49:11.694207Z",
+  "genesis_time": "2024-08-30T19:04:10.150435Z",
   "initial_height": "0",
   "validators": [
     {
@@ -172,15 +172,6 @@
       "pub_key": {
         "type": "tendermint/PubKeyEd25519",
         "value": "ZQLeHVHqHwSP51eZXy7MOqcD1FZFgMTErMv3ykgzhf0="
-      }
-    },
-    {
-      "address": "DFE4FD14BAF488B997AE5A964BF41D56DEE126B4",
-      "name": "Figment",
-      "power": "1",
-      "pub_key": {
-        "type": "tendermint/PubKeyEd25519",
-        "value": "Mq0iNNR9WwXJkRSdM2LvtnI72KoLpvU1/rLr5JBZz7U="
       }
     },
     {

@@ -1,4 +1,4 @@
-# Running a Dusk 10 Sequencer Full Node
+# Running a Dawn 0 Sequencer Full Node
 
 > Note: This was tested on a Google Cloud Platform `c3d-standard-4` (4 vCPU,
 > 16GB RAM, 500GB SSD) running `debian-12-bookworm`.
@@ -70,12 +70,12 @@ cd ../../../
 
 ### Setup CometBFT `config.toml`
 
-Timeout commit needs to be set to 2s, and peers are those listed in [peers.txt](./peers.txt)
+Timeout commit needs to be set to 1500ms, and peers are those listed in [peers.txt](./peers.txt)
 
 ```bash
 cometbft init
 sed -i'.bak' 's/timeout_commit = "1s"/timeout_commit = "1500ms"/g' ~/.cometbft/config/config.toml
-sed -i'.bak' 's/persistent_peers = ""/persistent_peers = "f4b8a8dcfc5a142bd00aadab71f39dbfe7091d13@35.236.107.39:26656,ca3bc3562919b82575fe3ac5b11fa5962ce8cd3b@34.118.249.169:26656,4418000e355967ecc8e03004f5850dfde51c410b@34.94.177.254:26656,7a117e7906d8428ad20341aca94af03c980c11d8@34.102.55.164:26656"/g' ~/.cometbft/config/config.toml
+sed -i'.bak' 's/persistent_peers = ""/persistent_peers = "fa453f8fa2e916025e5718bc53af97e9089058a8@35.236.26.51:26656,48d4eb0607a7b27f1af0288e60ac5a4ee6823adc@35.236.68.107:26656,0aaf5845fa6733b519c73644e17e6afcc53bd4a0@35.235.123.235:26656,59bc2e293f36900f403c0bfc5d00cd016c5397c3@34.94.139.132:26656"/g' ~/.cometbft/config/config.toml
 ```
 
 You may also want to enable other settings within the config.toml, such as
@@ -86,7 +86,7 @@ on configuration.
 ### Get Genesis File
 
 ```bash
-curl -o genesis.json -s https://raw.githubusercontent.com/astriaorg/networks/main/dusk-10/sequencer/genesis.json
+curl -o genesis.json -s https://raw.githubusercontent.com/astriaorg/networks/main/dawn-0/sequencer/genesis.json
 mv genesis.json ~/.cometbft/config/genesis.json
 ```
 
@@ -189,16 +189,16 @@ sudo journalctl -u cometbft.service
 
 ### Checking for matching block hashes
 
-The first sequencer block which has a tx is `458` which has hash
+The first sequencer block which has a tx is `837` which has hash
 
 ```bash
-BBF365C8E93CBDDAEB3567157DCA1F8B536AEC4246BB24510CBFAC3792C75DD3
+4E085BBB92379253BF24A29B6CFF309BA4B485132C74FE3F8CF3CA9664E0F007
 ```
 
 ### Check primary sequencer node
 
 ```bash
-curl -X GET "https://rpc.sequencer.dusk-10.devnet.astria.org/block?height=458" \
+curl -X GET "https://rpc.sequencer.dawn-0.astria.org/block?height=837" \
   -H "accept: application/json" -s \
   | jq .result.block_id.hash 
 ```
@@ -206,7 +206,7 @@ curl -X GET "https://rpc.sequencer.dusk-10.devnet.astria.org/block?height=458" \
 ### Check your local node
 
 ```bash
-curl -X GET "http://localhost:26657/block?height=458" \
+curl -X GET "http://localhost:26657/block?height=837" \
   -H "accept: application/json" -s \
   | jq .result.block_id.hash
 ```
@@ -222,7 +222,7 @@ helm repo add astria https://astriaorg.github.io/charts/
 ### Pull values file to use
 
 ```bash
-curl -o full-node-values.yaml -s https://raw.githubusercontent.com/astriaorg/networks/main/dusk-10/sequencer/full-node-values.yaml
+curl -o full-node-values.yaml -s https://raw.githubusercontent.com/astriaorg/networks/main/dawn-0/sequencer/full-node-values.yaml
 ```
 
 Note that you may want to edit this values file, by default it assumes you are
@@ -232,5 +232,5 @@ has default storage classes.
 ### Install
 
 ```bash
-helm install dusk10-full-node astria/astria-sequencer-validator --version 0.16.0 \
-  --namespace astria-dusk10-node --create-namespace -f full-node-values.yaml
+helm install dawn0-full-node astria/astria-sequencer-validator --version 0.16.0 \
+  --namespace astria-dawn0-node --create-namespace -f full-node-values.yaml
