@@ -1,0 +1,7 @@
+# Astria Dusknet 7 EVM
+
+## Software Versions
+
+|  Software  | Version | Links |
+|------------|---------|-------|
+| Astria-geth  | v0.10.0  | [Docker](http://ghcr.io/astriaorg/astria-geth:0.10.0), [Code](https://github.com/astriaorg/astria-geth/tree/v0.10.0) |
