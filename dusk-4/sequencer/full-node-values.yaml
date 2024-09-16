@@ -1,0 +1,79 @@
+global:
+  useTTY: true
+
+config:
+  sequencer:
+    authoritySudoAddress: b89627d1d7fc8ad0b698bca1938b96ec2c18375d
+    ibc:
+      enabled: true
+      inboundEnabled: true
+      outboundEnabled: true
+      sudoAddress: 59dd5630cf6cb06c79e56c2070d46e4c14325c3b
+      relayerAddresses: []
+    genesisAccounts:
+      - address: 3fff1c39b9d163bfb9bcbf9dfea78675f1b4bc2c
+        balance: "340282366920938463463374607431768211455"
+      - address: 38ccb8bd2528bce8669ff9e53a5f57c2cd86efb4
+        balance: "340282366920938463463374607431768211455"
+      - address: 2e046327a2ccac7c8f8018ed44e43184b502eb3e
+        balance: "340282366920938463463374607431768211455"
+      - address: 8618a88a4827ad8ffb4a757048d320172f5eb245
+        balance: "340282366920938463463374607431768211455"
+      - address: 0eef997a04cafe529dccaeafa86f70fe327276b1
+        balance: "100000000000000000000000000000000000000"
+
+    # Note can enable your otel collection from sequencer
+    otel:
+      enabled: false
+      endpoint: http://otel-collector.monitoring.svc.cluster.local:4317
+      tracesEndpoint: http://otel-collector.monitoring.svc.cluster.local:4317
+      tracesCompression: gzip
+      tracesTimeout: 10
+      otlpHeaders: ""
+      traceHeaders: ""
+
+  # Values for CometBFT node configuration
+  cometBFT:
+    chainId: astria-dusk-4
+    validators:
+      - name: node0
+        power: '1'
+        address: 230592632006DB2733444BB6DE11DB3F4B2F9AE4
+        pubKey: MkFfCdvuQpfMmoQcLCMSv5A/xTxIhg14iuZglzVaWF8=
+      - name: node1
+        address: 6F35496BCC8CF0EF9E2AC090FAEF578152549518
+        pubKey: CeKTMbL61MvTZ5hoA0hKL1REQUhejnNhEtKtSbg2Vso=
+        power: '1'
+      - name: node2
+        power: '1'
+        address: 115F94D8C98FFD73FE65182611140F0EDC7C3C94
+        pubKey: lvQ6hEiSjx5YCGTWn+ROCTxagqHUqAxZCG1+Z5ds2kU=
+      - name: node3
+        power: '1'
+        address: 60B5F4FED5CDE1F43E71CD03A4ACDCABB5724455
+        pubKey: ixbsw2r9ME9ikcWTwWSdtk+AxNNQ4PyzOjNnyiMMe58=
+
+images:
+  sequencer:
+    tag: "0.10.1"
+
+storage:
+  enabled: true
+  local: false
+  entities:
+    sequencerSharedStorage:
+      size: 1Ti
+
+# Can enable service monitor to utilize prometheus
+serviceMonitor:
+  enabled: false
+
+# Ingress disabled by default. Enable RPC & Grpc at minimum to enable rollups
+# running against full node.
+ingress:
+  rpc:
+    enabled: false
+  grpc:
+    enabled: false
+  p2p:
+    enabled: false
