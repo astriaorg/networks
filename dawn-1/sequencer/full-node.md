@@ -226,16 +226,16 @@ sudo journalctl -u cometbft.service
 
 ### Checking for matching block hashes
 
-The first sequencer block which has a tx is `837` which has hash
+The first sequencer block which has a tx is `1052` which has hash
 
 ```bash
-4E085BBB92379253BF24A29B6CFF309BA4B485132C74FE3F8CF3CA9664E0F007
+9DA0330AEDD7148E7DA6A4F760EE16E5C431B19C8CA99D2E2E942A3C6B076366
 ```
 
 ### Check primary sequencer node
 
 ```bash
-curl -X GET "https://rpc.sequencer.dawn-1.astria.org/block?height=837" \
+curl -X GET "https://rpc.sequencer.dawn-1.astria.org/block?height=1052" \
   -H "accept: application/json" -s \
   | jq .result.block_id.hash 
 ```
@@ -243,7 +243,7 @@ curl -X GET "https://rpc.sequencer.dawn-1.astria.org/block?height=837" \
 ### Check your local node
 
 ```bash
-curl -X GET "http://localhost:26657/block?height=837" \
+curl -X GET "http://localhost:26657/block?height=1052" \
   -H "accept: application/json" -s \
   | jq .result.block_id.hash
 ```

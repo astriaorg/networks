@@ -13,10 +13,11 @@ cometbft:
     p2p:
       # List of nodes to keep persistent connections to
       persistentPeers:
-        - fa453f8fa2e916025e5718bc53af97e9089058a8@35.236.26.51:26656
-        - 48d4eb0607a7b27f1af0288e60ac5a4ee6823adc@35.236.68.107:26656
-        - 0aaf5845fa6733b519c73644e17e6afcc53bd4a0@35.235.123.235:26656
-        - 59bc2e293f36900f403c0bfc5d00cd016c5397c3@34.94.139.132:26656
+        - fa453f8fa2e916025e5718bc53af97e9089058a8@35.235.126.231:26656
+        - 48d4eb0607a7b27f1af0288e60ac5a4ee6823adc@34.94.126.233:26656
+        - 0aaf5845fa6733b519c73644e17e6afcc53bd4a0@35.236.112.124:26656
+        - 59bc2e293f36900f403c0bfc5d00cd016c5397c3@34.94.60.57:26656
+
   secrets: # TODO: Add secrets, recommended not to use devContent in prodcution environments
       nodeKey:
         filename: nodeKey.json
@@ -44,18 +45,20 @@ cometbft:
           resourceName: "projects/$PROJECT_ID/secrets/privValidatorKey/versions/latest"
 
 genesis:
-  chainId: dawn-0
-  genesisTime: "2024-08-30T19:04:10.150435Z"
-  authoritySudoAddress: astria1enkj6d20xnt2c9822uvnuhwjlcm673u2dqx8uf
-  allowedFeeAssets: [] 
+  chainId: dawn-1
+  genesisTime: "2024-10-16T21:13:04.150435Z"
+  # dawn-1-sudo-key-pkey
+  authoritySudoAddress: astria1qzs2g8ft4z5nacr40n93uxufgjqya9uqjmhhuj
+  nativeAssetBaseDenomination: "nria"
+  allowedFeeAssets: [] # Will be populated by sudo command
   ibc:
     enabled: true
     inboundEnabled: true
     outboundEnabled: true
-    sudoAddress: astria17h63k8du5kaphe6c69ju0mzmm5udls405yaqe4
-    relayerAddresses: [] 
+    sudoAddress: astria1p2lgmfyg2pszet8hstd22x7kzler7ahtf53w3r
+    relayerAddresses: [] # Will be populated by sudo command
   genesisAccounts:
-    - address: astria1enkj6d20xnt2c9822uvnuhwjlcm673u2dqx8uf
+    - address: astria1qzs2g8ft4z5nacr40n93uxufgjqya9uqjmhhuj
       balance: "100000000000000000"
   validators:
     # Astria astria0
@@ -101,18 +104,13 @@ genesis:
     # P-OPS Team
     - name: P-OPS Team
       power: '1'
-      address: B49B0CB68320E621689240586E501EB0E1D1BBD3
-      pubKey: zuudZ64AEuhTKD+jqTOTMHoEiyABIYGCjAshJdZJsfM=
+      address: 8E097B67FA4DAC2858CB94D7CFE00B0B82C9321F
+      pubKey: NSsJJkx8puK0CEX1iZc+7rHBBo/DNrpXFxTsAYdgvgY=
     # Tessellated
     - name: Tessellated
       power: '1'
       address: 5F9F7087258A7ED9DA8217B9A8623FF04695978D
       pubKey: r1151CNaMFBFa6ii3MyLyDzxsK49iTgZ9NqkPy59WPM=
-    # BatuX
-    - name: BatuX
-      power: '1'
-      address: 891204AD77FB66668F989F6FEF887654A61E2226
-      pubKey: ZQLeHVHqHwSP51eZXy7MOqcD1FZFgMTErMv3ykgzhf0=
     # P2P.ORG - P2P Validator
     - name: P2P.ORG - P2P Validator
       power: '1'
