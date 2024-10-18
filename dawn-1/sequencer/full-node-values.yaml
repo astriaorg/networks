@@ -1,0 +1,169 @@
+global:
+  namespace: "" # add namespace here
+  useTTY: true
+
+# Override value example for full-node from main chart
+moniker: '' # add moniker here
+
+secretProvider:
+  enabled: false
+
+cometbft:
+  config:
+    p2p:
+      # List of nodes to keep persistent connections to
+      persistentPeers:
+        - fa453f8fa2e916025e5718bc53af97e9089058a8@35.236.26.51:26656
+        - 48d4eb0607a7b27f1af0288e60ac5a4ee6823adc@35.236.68.107:26656
+        - 0aaf5845fa6733b519c73644e17e6afcc53bd4a0@35.235.123.235:26656
+        - 59bc2e293f36900f403c0bfc5d00cd016c5397c3@34.94.139.132:26656
+  secrets: # TODO: Add secrets, recommended not to use devContent in prodcution environments
+      nodeKey:
+        filename: nodeKey.json
+        devContent:
+          priv_key:
+            type: tendermint/PrivKeyEd25519
+            value: ""  # can override with a value for local testing
+        secret:
+          resourceName: "projects/$PROJECT_ID/secrets/privValidatorKey/versions/latest"
+      privValidatorKey:
+        filename: privValidatorKey.json
+        devContent:
+          # Ed25519 address of validator
+          address: ""  # can override with a value for local testing
+          # public key for the validator address
+          pub_key:
+            type: tendermint/PubKeyEd25519
+            value: ""  # can override with a value for local testing
+          # private key for the validator address
+          # This is a secret key, should use a secret manager for production deployments
+          priv_key:
+            type: tendermint/PrivKeyEd25519
+            value: ""  # can override with a value for local testing
+        secret:
+          resourceName: "projects/$PROJECT_ID/secrets/privValidatorKey/versions/latest"
+
+genesis:
+  chainId: dawn-0
+  genesisTime: "2024-08-30T19:04:10.150435Z"
+  authoritySudoAddress: astria1enkj6d20xnt2c9822uvnuhwjlcm673u2dqx8uf
+  allowedFeeAssets: [] 
+  ibc:
+    enabled: true
+    inboundEnabled: true
+    outboundEnabled: true
+    sudoAddress: astria17h63k8du5kaphe6c69ju0mzmm5udls405yaqe4
+    relayerAddresses: [] 
+  genesisAccounts:
+    - address: astria1enkj6d20xnt2c9822uvnuhwjlcm673u2dqx8uf
+      balance: "100000000000000000"
+  validators:
+    # Astria astria0
+    - name: astria0
+      power: '25'
+      address: 8F75C00017C59F326043A5A9054CB7C7421820D1
+      pubKey: lCInm5huYMUyplra1m67dfbhodnLX0YTo11xR9Za3Hw=
+    # Astria astria1
+    - name: astria1
+      power: '25'
+      address: 2DF1961B30F05D130F78BDEFC787CA5BF286A720
+      pubKey: oCF7nuz+1rKIBB7Yg8vqvZCLwC8fxdNRDmFMghKEcFM=
+    # Astria astria2
+    - name: astria2
+      power: '25'
+      address: EFCB40DAFA5A579BC4EEB08BAF89B9BDFC415291
+      pubKey: VRru43aqcqEb1QP2SRHVoUf+ArdddJ9WGgxDwEsrSw8=
+    # Astria node3
+    - name: astria3
+      power: '25'
+      address: 704DC2FBE0C2C88AFBDBE3AAC95E61C4865D0C4C
+      pubKey: p48+N7lI4xPaFIrRCAXqZSuzZO01vM4mSRDYqhwzGJA=
+    # Nodes.Guru
+    - name: Nodes.Guru
+      power: '1'
+      address: 1E96A71EC2205C55065C249719B691C9C10846B9
+      pubKey: GQ7oQo8pIZRcxvfm992cChf4nI5iRgNI3EzKK+4WrzY=
+    # Qubelabs
+    - name: Qubelabs
+      power: '1'
+      address: 50803720316D985B2FCD94C74105AFB836F6AB51
+      pubKey: pENCCfKZ+1qVxS7SSo3NYT1G0fUBql4nblaK2Wq6afA=
+    # DSRV
+    - name: DSRV
+      power: '1'
+      address: 5EA04241DCFCCCBCC6CAD46C2EA41317D98EFAC3
+      pubKey: FcCm9xUn8er0J+D6FnSVaJt7g/5J+JfUrigz91V+9BA=
+    # Nocturnal Labs
+    - name: Nocturnal Labs
+      power: '1'
+      address: F5BB9D2C9BC52D1F551D3B86A5AEB7C8B7AC97B9
+      pubKey: +KFHGN5eVHMpyxQdHYWiDFwQ4EWWNHWvpfUvlOGn7kM=
+    # P-OPS Team
+    - name: P-OPS Team
+      power: '1'
+      address: B49B0CB68320E621689240586E501EB0E1D1BBD3
+      pubKey: zuudZ64AEuhTKD+jqTOTMHoEiyABIYGCjAshJdZJsfM=
+    # Tessellated
+    - name: Tessellated
+      power: '1'
+      address: 5F9F7087258A7ED9DA8217B9A8623FF04695978D
+      pubKey: r1151CNaMFBFa6ii3MyLyDzxsK49iTgZ9NqkPy59WPM=
+    # BatuX
+    - name: BatuX
+      power: '1'
+      address: 891204AD77FB66668F989F6FEF887654A61E2226
+      pubKey: ZQLeHVHqHwSP51eZXy7MOqcD1FZFgMTErMv3ykgzhf0=
+    # P2P.ORG - P2P Validator
+    - name: P2P.ORG - P2P Validator
+      power: '1'
+      address: 7B87C3E324F871A123B24BD36CCBB9BEC5DFCC0F
+      pubKey: 5v6vQJ+DYLhIZEzw96TMLgqS1A73czffLz1ilDgziWs=
+
+sequencer:
+  metrics:
+    enabled: true
+  otel:
+    enabled: true
+    endpoint: http://otel-collector.monitoring.svc.cluster.local:4317
+    tracesEndpoint: http://otel-collector.monitoring.svc.cluster.local:4317
+    tracesCompression: gzip
+    tracesTimeout: 10
+    otlpHeaders: ""
+    traceHeaders: ""
+
+storage:
+  enabled: true
+  local: false
+  entities:
+    sequencerSharedStorage:
+      size: 1Ti
+      storageClassName: premium-rwo
+      persistentVolumeName: "sequencer-shared-storage"
+      path: "/data/sequencer-data"
+
+serviceMonitor:
+  enabled: false
+
+resources:
+  cometbft:
+    requests:
+      cpu: 2000m
+      memory: 4Gi
+    limits:
+      cpu: 2000m
+      memory: 4Gi
+  sequencer:
+    requests:
+      cpu: 2000m
+      memory: 4Gi
+    limits:
+      cpu: 2000m
+      memory: 4Gi
+
+ingress:
+  p2p:
+    enabled: false
+  rpc:
+    enabled: false
+  grpc:
+    enabled: false
