@@ -39,7 +39,7 @@ Used for CometBFT
 wget https://go.dev/dl/go1.22.6.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.22.6.linux-amd64.tar.gz
 export GOPATH=~/go
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/usr/local/go/bin
 ```
 
 ### Rust
@@ -269,5 +269,5 @@ has default storage classes.
 ### Install
 
 ```bash
-helm install dawn0-full-node astria/sequencer --version 0.16.0 \
-  --namespace astria-dawn0-node --create-namespace -f full-node-values.yaml
+helm install dawn-1-full-node astria/sequencer --version 1.0.0-rc.1 \
+  --namespace astria-dawn-1-node --create-namespace -f full-node-values.yaml
