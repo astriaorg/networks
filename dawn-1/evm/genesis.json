@@ -1,0 +1,46 @@
+{
+  "config": {
+      "chainId": 16604737732183,
+      "homesteadBlock": 0,
+      "eip150Block": 0,
+      "eip155Block": 0,
+      "eip158Block": 0,
+      "byzantiumBlock": 0,
+      "constantinopleBlock": 0,
+      "petersburgBlock": 0,
+      "istanbulBlock": 0,
+      "berlinBlock": 0,
+      "londonBlock": 0,
+      "shanghaiTime": 0,
+      "terminalTotalDifficulty": 0,
+      "terminalTotalDifficultyPassed": true,
+      "ethash": {},
+      "astriaOverrideGenesisExtraData": true,
+      "astriaSequencerInitialHeight": 65078,
+      "astriaRollupName": "flame-dawn-1",
+      "astriaCelestiaInitialHeight": 2951695,
+      "astriaCelestiaHeightVariance": 15000,
+      "astriaBridgeAddresses": [
+        {
+          "assetDenom": "transfer/channel-0/utia",
+          "assetPrecision": 6,
+          "bridgeAddress": "astria1lepnry7tlpzvrukp5xej4v5wp532k2f94vxqnr",
+          "senderAddress": "0x0000000000000000000000000000000000000000",
+          "startHeight": 1
+        }
+      ],
+      "astriaFeeCollectors": {
+        "1": "0xF09cA27323E25ff7Cee792b108D8521864F3a337"
+      },
+      "astriaEIP1559Params": {},
+      "astriaSequencerAddressPrefix": "astria"
+  },
+  "difficulty": "0",
+  "gasLimit": "50000000",
+  "alloc": {
+      "0x4e59b44847b379578588920cA78FbF26c0B4956C": {
+        "balance": "0",
+        "code": "0x7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe03601600081602082378035828234f58015156039578182fd5b8082525050506014600cf3"
+      }
+  }
+}
