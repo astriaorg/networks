@@ -1,0 +1,261 @@
+{
+  "app_hash": "",
+  "app_state": {
+    "native_asset_base_denomination": "",
+    "fees": {
+      "bridge_lock": {
+        "base": {
+          "lo": 0
+        },
+        "multiplier": {
+          "lo": 1
+        }
+      },
+      "bridge_sudo_change": {
+        "base": {
+          "lo": 24
+        },
+        "multiplier": {
+          "lo": 0
+        }
+      },
+      "bridge_unlock": {
+        "base": {
+          "lo": 0
+        },
+        "multiplier": {
+          "lo": 0
+        }
+      },
+      "fee_asset_change": {
+        "base": {
+          "lo": 0
+        },
+        "multiplier": {
+          "lo": 0
+        }
+      },
+      "fee_change": {
+        "base": {
+          "lo": 0
+        },
+        "multiplier": {
+          "lo": 0
+        }
+      },
+      "ibc_relay": {
+        "base": {
+          "lo": 0
+        },
+        "multiplier": {
+          "lo": 0
+        }
+      },
+      "ibc_relayer_change": {
+        "base": {
+          "lo": 0
+        },
+        "multiplier": {
+          "lo": 0
+        }
+      },
+      "ibc_sudo_change": {
+        "base": {
+          "lo": 0
+        },
+        "multiplier": {
+          "lo": 0
+        }
+      },
+      "ics20_withdrawal": {
+        "base": {
+          "lo": 24
+        },
+        "multiplier": {
+          "lo": 0
+        }
+      },
+      "init_bridge_account": {
+        "base": {
+          "lo": 48
+        },
+        "multiplier": {
+          "lo": 0
+        }
+      },
+      "rollup_data_submission": {
+        "base": {
+          "lo": 32
+        },
+        "multiplier": {
+          "lo": 1
+        }
+      },
+      "sudo_address_change": {
+        "base": {
+          "lo": 0
+        },
+        "multiplier": {
+          "lo": 0
+        }
+      },
+      "transfer": {
+        "base": {
+          "lo": 12
+        },
+        "multiplier": {
+          "lo": 0
+        }
+      },
+      "validator_update": {
+        "base": {
+          "lo": 0
+        },
+        "multiplier": {
+          "lo": 0
+        }
+      }
+    },
+    "allowed_fee_assets": [],
+    "ibc_parameters": {
+      "ibc_enabled": true,
+      "inbound_ics20_transfers_enabled": true,
+      "outbound_ics20_transfers_enabled": true
+    },
+    "address_prefixes": {
+      "base": "astria",
+      "ibcCompat": "astriacompat"
+    },
+    "accounts": [],
+    "authority_sudo_address": {
+      "bech32m": "astria10d5hecc4j0fn4k20qtgu6xmf3p8r9qcsgkrunn"
+    },
+    "ibc_sudo_address": {
+      "bech32m": "astria1enuftjaed780uv4p9aqcdyj73n8xj7kjq4nl8h"
+    },
+    "ibc_relayer_addresses": []
+  },
+  "chain_id": "astria-alpha",
+  "consensus_params": {
+    "block": {
+      "max_bytes": " 1048576",
+      "max_gas": "-1"
+    },
+    "evidence": {
+      "max_age_duration": "1209600000000000",
+      "max_age_num_blocks": " 4000000",
+      "max_bytes": "1048576"
+    },
+    "validator": {
+      "pub_key_types": [
+        "ed25519"
+      ]
+    },
+    "version": {
+      "app": "0"
+    }
+  },
+  "genesis_time": "2024-10-21T21:13:04.069420Z",
+  "initial_height": "0",
+  "validators": [
+    {
+      "address": "63FD0CE49F485F167A8B94B9E80DBBD351FA9F98",
+      "name": "astria0",
+      "power": "25",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "8rPKInUBqFKv7Wie/O4G9P6wHWccMfifpeU/BlhFaHw="
+      }
+    },
+    {
+      "address": "4E72A7432B5C0FAEC21CF251535781723A8248A7",
+      "name": "astria1",
+      "power": "25",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "IzGYindOUk15ZL6bh6j8+fjSRgjeoL93txgA9ETfFXI="
+      }
+    },
+    {
+      "address": "47BD55BC6E3CA4A8519C372744AEE40C9340B8B4",
+      "name": "astria2",
+      "power": "25",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "S9VKKZgwdtiWWll3PT1yn+xgqZLci+MMtPmH2wuux+w="
+      }
+    },
+    {
+      "address": "3A7E64DFA6E11958B5A0903EA4C3D5A8E662C503",
+      "name": "astria3",
+      "power": "25",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "XntgAVoWJS7SE7hSw9OHyHBrP50+l8mZc/ctaQWIseQ="
+      }
+    },
+    {
+      "address": "8F6D2388C4C068A0217F75E914C3FBA8E28079B7",
+      "name": "Nodes.Guru",
+      "power": "1",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "S4vhA0z7Gw5p3Yszwnlm+BdXELSOeRH4/jBL2r55zo8="
+      }
+    },
+    {
+      "address": "3CB3760D29B485C711D27D5AC5CE6B4AF048263D",
+      "name": "Qubelabs",
+      "power": "1",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "KA/DKcILRpYVybz9ZHh784yZr9WvvCHRKzy+Av9KlUg="
+      }
+    },
+    {
+      "address": "19685F5CFF69B64EF6C50E8BB4BA506DB1E1BB5C",
+      "name": "DSRV",
+      "power": "1",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "jqnJZ1Op4TPiNTHNVFyvXtdRuObhDhnl1cKyH/FO3kY="
+      }
+    },
+    {
+      "address": "816B7C75D3C43D5F700D67975F020D938AF882F9",
+      "name": "Nocturnal Labs",
+      "power": "1",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "IdsrfKarwcDa0ToNrDfRXPByuYdlwSDxvwJlJM0mc9A="
+      }
+    },
+    {
+      "address": "4E8AD81B9361FBF6DBC853514F1B259A75B2D5C0",
+      "name": "P-OPS Team",
+      "power": "1",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "hCbuIHcC8Ivufr1hR/cPUPetS0snT9fSzgMQgWKZx9c="
+      }
+    },
+    {
+      "address": "666CBCE466D0DECDBBB3982AF747B74E0BD44030",
+      "name": "Tessellated",
+      "power": "1",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "gyhVdvDyxSV2XH0jby1vnmQitPowjm/pn1CDVprre2c="
+      }
+    },
+    {
+      "address": "4FBB2E3BF3B5DDD7FCD5C4A028336F680098A1FB",
+      "name": "P2P.ORG - P2P Validator",
+      "power": "1",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "GLN47O9Iea9yKR9m8FMpZ180KL52Ht1i3yO9xu760Ew="
+      }
+    }
+  ]
+}
