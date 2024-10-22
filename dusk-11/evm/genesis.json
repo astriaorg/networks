@@ -27,6 +27,17 @@
         "bridgeAddress": "astria1yqdjnnmrp7w5ygwj0dkldsgzjhv5vcakp7yeu9",
         "senderAddress": "0x0000000000000000000000000000000000000000",
         "startHeight": 1
+      },
+      {
+        "assetDenom": "transfer/channel-2/uusdc",
+        "assetPrecision": 6,
+        "bridgeAddress": "astria12saluecm8dd7hkutk83eavkl2p70lf5w7txezg",
+        "erc20asset": {
+          "contractAddress": "0xa4f59B3E97EC22a2b949cB5b6E8Cd6135437E857",
+          "contractPrecision": 18
+        },
+        "senderAddress": "0xa7183eFD1e1fb81595009376f9643f54474933CD",
+        "startHeight": 213172
       }
     ],
     "astriaFeeCollectors": {
