@@ -1,4 +1,4 @@
-# Astria Dusknet 10 EVM
+# Astria Dawn 1 EVM
 
 ## Software Versions
 
