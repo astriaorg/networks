@@ -1,4 +1,7 @@
 {
+  "genesis_time": "2024-10-21T21:13:04.069420Z",
+  "initial_height": "0",
+  "chain_id": "astria",
   "app_hash": "",
   "app_state": {
     "fees": {
@@ -94,7 +97,6 @@
     },
     "ibc_relayer_addresses": []
   },
-  "chain_id": "astria",
   "consensus_params": {
     "block": {
       "max_bytes": " 1048576",
@@ -114,8 +116,6 @@
       "app": "0"
     }
   },
-  "genesis_time": "2024-10-21T21:13:04.069420Z",
-  "initial_height": "0",
   "validators": [
     {
       "address": "63FD0CE49F485F167A8B94B9E80DBBD351FA9F98",
