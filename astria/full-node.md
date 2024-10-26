@@ -101,7 +101,7 @@ on configuration.
 ### Get Genesis File
 
 ```bash
-curl -o genesis.json -s https://raw.githubusercontent.com/astriaorg/networks/refs/heads/joroshiba/mainnet-alpha/astria/genesis.json
+curl -o genesis.json -s https://raw.githubusercontent.com/astriaorg/networks/main/astria/genesis.json
 mv genesis.json ~/.astria-cometbft/config/genesis.json
 ```
 
