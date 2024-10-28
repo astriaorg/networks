@@ -1,4 +1,4 @@
-# Running a Dawn 0 Sequencer Full Node
+# Running a Astria Mainnet Alpha Sequencer Full Node
 
 > Note: This was tested on a Google Cloud Platform `c3d-standard-4` (4 vCPU,
 > 16GB RAM, 1000GB SSD) running `debian-12-bookworm`.
