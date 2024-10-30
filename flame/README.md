@@ -7,4 +7,4 @@ Chain ID: `253368190`
 |  Software  | Version | Links |
 |------------|---------|-------|
 | Astria-geth  | v1.0.0  | [Docker](http://ghcr.io/astriaorg/astria-geth:1.0.0), [Code](https://github.com/astriaorg/astria-geth/tree/v1.0.0) |
-| Condeuctor | v1.0.0 | [Docker](http://ghcr.io/astriaorg/astria-conductor:1.0.0), [Code](https://github.com/astriaorg/astria/tree/conductor-v1.0.0/crates/astria-conductor) |
+| Conductor | v1.0.0 | [Docker](http://ghcr.io/astriaorg/astria-conductor:1.0.0), [Code](https://github.com/astriaorg/astria/tree/conductor-v1.0.0/crates/astria-conductor) |
