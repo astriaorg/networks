@@ -1,0 +1,183 @@
+global:
+  useTTY: true
+  evmChainId: "253368190"
+  rollupName: flame
+  sequencerRpc: https://rpc.astria.org
+  sequencerGrpc: https://grpc.astria.org
+  sequencerChainId: astria
+  celestiaChainId: celestia
+  otel: # enable otel
+    enabled: false
+    endpoint: ""
+    tracesEndpoint: ""
+    tracesCompression: gzip
+    tracesTimeout: "10"
+    otlpHeaders: ""
+    traceHeaders: ""
+
+evm-rollup:
+  genesis:
+    ## These values are used to configure the genesis block of the rollup chain
+    ## no defaults as they are unique to each chain
+
+    # Block height to start syncing rollup from, lowest possible is 2
+    sequencerInitialHeight: "68733"
+    # The first Celestia height to utilize when looking for rollup data
+    celestiaInitialHeight: "2658919"
+    # The variance in Celestia height to allow before halting the chain
+    celestiaHeightVariance: "43200"
+    # Will fill the extra data in each block, can be left empty
+    # can also fill with something unique for your chain.
+    extraDataOverride: ""
+
+    ## These are general configuration values with some recommended defaults
+
+    # Configure the gas Limit
+    gasLimit: "50000000"
+    # If set to true the genesis block will contain extra data
+    overrideGenesisExtraData: true
+    # The hrp for bech32m addresses, unlikely to be changed
+    sequencerAddressPrefix: "astria"
+
+    ## These values are used to configure astria native bridging
+    ## Many of the fields have commented out example fields
+
+    # Configure the sequencer bridge addresses and allowed assets if using
+    # the astria canonical bridge. Recommend removing alloc values if so.
+    bridgeAddresses:
+      - bridgeAddress: "astria13vptdafyttpmlwppt0s844efey2cpc0mevy92p"
+        startHeight: 1
+        assetDenom: "transfer/channel-0/utia"
+        senderAddress: "0x0000000000000000000000000000000000000000"
+        assetPrecision: 6
+      - bridgeAddress: "astria1eg8hhey0n4untdvqqdvlyl0e7zx8wfca48kglh"
+        startHeight: 37210
+        assetDenom: "transfer/channel-1/uusdc"
+        senderAddress: "0xf1a177e000000000000000000000000000000001"
+        assetPrecision: 6
+        erc20asset:
+          contractAddress: "0x3f65144F387f6545bF4B19a1B39C94231E1c849F"
+          contractPrecision: 6
+      - bridgeAddress: "astria1kgxhyhvynhcwwrylkzzx6q3a8rn3tuvasxvuy8"
+        startHeight: 80930
+        assetDenom: "transfer/channel-2/factory/osmo1f5vfcph2dvfeqcqkhetwv75fda69z7e5c2dldm3kvgj23crkv6wqcn47a0/umilkTIA"
+        senderAddress: "0xf1a177e000000000000000000000000000000002"
+        assetPrecision: 6
+        erc20asset:
+          contractAddress: "0xcbb93e854AA4EF5Db51c3b094F28952eF0dC67bE"
+          contractPrecision: 18
+      - bridgeAddress: "astria1dllx9d9karss9ca8le25a4vqhf67a67d5d4l6r"
+        startHeight: 81114
+        assetDenom: "transfer/channel-3/stutia"
+        senderAddress: "0xf1a177e000000000000000000000000000000003"
+        assetPrecision: 6
+        erc20asset:
+          contractAddress: "0xdf941D092b10FF07eAb44bD174dEe915c13FECcd"
+          contractPrecision: 18
+
+    ## Fee configuration
+
+    # Configure the fee collector for the evm tx fees, activated at block heights.
+    # If not configured, all tx fees will be burned.
+    feeCollectors:
+      1: "0x44204559465D67A65E489f030584A234E42f1d9E"
+
+    # Can override the EIP 1559 parameters at a given height
+    eip1559Params:
+      1:
+        minBaseFee: 18000000000
+        elasticityMultiplier: 6
+        baseFeeChangeDenominator: 250
+      50000:
+        minBaseFee: 100000000000
+        elasticityMultiplier: 6
+        baseFeeChangeDenominator: 250
+
+    # Can configure the genesis allocs for the chain
+    alloc:
+      # Deploying the deterministic deploy proxy contract in genesis
+      # Forge and other tools use this for their CREATE2 usage, but
+      # can only be included through the genesis block after EIP-155
+      # https://github.com/Arachnid/deterministic-deployment-proxy
+      - address: "0x4e59b44847b379578588920cA78FbF26c0B4956C"
+        value:
+          balance: "0"
+          code: "0x7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe03601600081602082378035828234f58015156039578182fd5b8082525050506014600cf3"
+  config:
+    # The level at which core astria components will log out
+    # Options are: error, warn, info, and debug
+    logLevel: "debug"
+    geth:
+      archiveNode: false
+    rollup:
+      name: flame
+    celestia:
+      rpc: "" # celestia light node endpoint
+      token: ""
+
+  resources:
+    conductor:
+      requests:
+        cpu: 1
+        memory: 2Gi
+      limits:
+        cpu: 1
+        memory: 2Gi
+    geth:
+      requests:
+        cpu: 4
+        memory: 16Gi
+      limits:
+        cpu: 4
+        memory: 16Gi
+
+  storage:
+    enabled: true
+    local: false
+
+  ingress:
+    enabled: false
+
+celestia-node:
+  enabled: true
+  images:
+    pullPolicy: IfNotPresent
+    node: ghcr.io/celestiaorg/celestia-node:v0.17.2
+  config:
+    name: celestia-node
+    network: celestia
+    chainId: celestia
+    coreIp: "rpc.celestia.pops.one" # celestia rpc endpoint to initialize the node
+    type: light
+    tokenAuthLevel: false # can set to nil or false to disable rpc auth
+    coreGrpcPort: 9090
+    customInfo: ""
+    startHeight: "2658384"
+    trustedHash: "425059BE20856ADA6FD3FD1ECAB8D3F1000AABA73D178CCB45A43F74C787376F"
+
+  ports:
+    celestia:
+      rpc: 26658
+
+  storage:
+    enabled: true
+    local: false
+
+  resources:
+    requests:
+      cpu: 1
+      memory: 4Gi
+    limits:
+      cpu: 2
+      memory: 8Gi
+
+composer:
+  enabled: false
+evm-bridge-withdrawer:
+  enabled: false
+evm-faucet:
+  enabled: false
+postgresql:
+  enabled: false
+blockscout-stack:
+  enabled: false
