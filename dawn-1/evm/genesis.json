@@ -38,6 +38,17 @@
         },
         "senderAddress": "0xea9d2B36A562ee176c43312397c1b4279ee2343a",
         "startHeight": 119543
+      },
+      {
+        "assetDenom": "transfer/channel-4/factory/neutron1tkr6mtll5e2z53ze2urnc3ld3tq3dam2rchezc5lg9c237ft66gqtw94jm/drop",
+        "assetPrecision": 6,
+        "bridgeAddress": "astria1j7juyc9nv6tlv0la74a9rrm7v72y3x336mgxvk",
+        "erc20asset": {
+          "contractAddress": "0x0F0C3207a9fE9B7e8AaE4bb83E865C91A13Fd8a7",
+          "contractPrecision": 18
+        },
+        "senderAddress": "0xea9d2B36A562ee176c43312397c1b4279ee2343a",
+        "startHeight": 1077477
       }
     ],
     "astriaFeeCollectors": {
