@@ -1,4 +1,4 @@
-# Astria Dawn 0 Sequencer
+# Astria Dawn 1 Sequencer
 
 ## Software Versions
 

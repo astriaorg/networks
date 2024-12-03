@@ -1,4 +1,4 @@
-# Running a Astria Mainnet Alpha Sequencer Full Node
+# Running an Astria Mainnet Sequencer Full Node
 
 > Note: This was tested on a Google Cloud Platform `c3d-standard-4` (4 vCPU,
 > 16GB RAM, 1000GB SSD) running `debian-12-bookworm`.
@@ -83,9 +83,9 @@ cd ../../../
 
 Timeout commit needs to be set to 1500ms, and peers are those listed in [peers.txt](./peers.txt)
 
-> ❗ Note the below sets up cometbft directory ~/.astria-cometbft replace all
-> instances in the rest of this doc with your preferred cometbft config directory.
-> This directory was chosen to avoid conflicts with other cometbft configurations.
+> ❗ Note the below sets up CometBFT directory `~/.astria-cometbft`. Replace all
+> instances in the rest of this doc with your preferred CometBFT config directory.
+> This directory was chosen to avoid conflicts with other CometBFT configurations.
 
 ```bash
 cometbft init --home ~/.astria-cometbft
@@ -101,26 +101,24 @@ on configuration.
 ### Get Genesis File
 
 ```bash
-curl -o genesis.json -s https://raw.githubusercontent.com/astriaorg/networks/refs/heads/joroshiba/mainnet-alpha/astria/genesis.json
+curl -o genesis.json -s https://raw.githubusercontent.com/astriaorg/networks/refs/heads/main/astria/genesis.json
 mv genesis.json ~/.astria-cometbft/config/genesis.json
 ```
 
 ### Setup Validator Key
 
-The cometbft init command creates a validator key file. If you are a part of the
+The `cometbft init` command creates a validator key file. If you are a part of the
 validator set you must replace this key. There are a couple ways to do this.
 
 - replace the file at `~/.astria-cometbft/config/priv_validator_key.json`
-with your preffered cometbft validator key file.
+with your preferred CometBFT validator key file.
 - update the config file at `~/.astria-cometbft/config/config.toml`:
   - replace the path in `priv_validator_key_file` with path to your validator key
-  - run [tmkms](https://github.com/iqlusioninc/tmkms) seperately
+  - run [tmkms](https://github.com/iqlusioninc/tmkms) separately
     and configure `priv_validator_laddr` to the signing server location
 
-See documentation in cometbft docs for information about recommended validator
+See documentation in CometBFT docs for information about recommended validator
 architecture setups [here](https://docs.cometbft.com/v0.38/core/validators#validator-node-configuration).
-
-## Setup & Run using systemd
 
 ### Setup Astria Sequencer Env Vars
 
@@ -129,9 +127,9 @@ architecture setups [here](https://docs.cometbft.com/v0.38/core/validators#valid
 
 #### From `/home/astria_org`
 
-> The .env file copied below has other settipings you may want to change wrt
-> general configuration, especially around metrics and logging. It is self
-> self documented.
+> The .env file copied below has other settings you may want to change with
+> regards to general configuration, especially around metrics and logging. It
+> is self-documented.
 
 ```bash
 mkdir /home/astria_org/sequencer-v1.0.0
@@ -140,6 +138,55 @@ cp ~/astria/crates/astria-sequencer/local.env.example /home/astria_org/astria-se
 mkdir /home/astria_org/astria_db
 sed -i'.bak' 's/"\/tmp\/astria_db"/"\/home\/astria_org\/astria_db"/g' /home/astria_org/astria-sequencer.env
 ```
+
+## Optional: Setup Snapshot
+
+You can use a snapshot of the Sequencer databases to allow your node to sync
+much more quickly. If you prefer to run a full block sync from genesis, then
+skip this step and move to [Run using systemd](#run-using-systemd).
+
+### Install `rclone`
+
+This can be done via
+
+```bash
+sudo -v ; curl https://rclone.org/install.sh | sudo bash
+```
+
+or
+
+```bash
+brew install rclone
+```
+
+For other installation options, see [here](https://rclone.org/install).
+
+### Configure `rclone`
+
+```bash
+rclone config create r2 s3 \
+  provider=Cloudflare \
+  access_key_id=0d8d8005e468dd86498bde6dfa02044f \
+  secret_access_key=e33ea43e00d9b655cb72d8a8107fa2957bd6b77e5718df0a26f259956532bba8 \
+  region=auto \
+  endpoint=https://fb1caa337c8e4e3101363ca1240e03ca.r2.cloudflarestorage.com \
+  acl=private
+```
+
+### Download and Unpack Snapshots
+
+> Remember to replace `/home/astria_org` below with the absolute path to your
+> preferred Sequencer directory as described in
+> [Setup Astria Sequencer Env Vars](#setup-astria-sequencer-env-vars).
+
+```bash
+rclone copy -P r2:astria-mainnet-snapshots/ .
+tar -C ~/.astria-cometbft/data/ --strip-components=2 -xzf cometbft_*.tar.gz cometbft/data
+tar -C /home/astria_org/astria_db --strip-components=2 -xzf sequencer_*.tar.gz sequencer/penumbra.db
+rm cometbft_*.tar.gz sequencer_*.tar.gz
+```
+
+## Run using systemd
 
 ### astria-sequencer.service
 
