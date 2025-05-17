@@ -71,7 +71,7 @@ cd ../
 ```bash
 git clone https://github.com/astriaorg/astria.git
 cd astria
-git checkout tags/sequencer-v1.0.0-rc.1
+git checkout tags/sequencer-v3.0.0-rc.2
 cd crates/astria-sequencer/
 cargo build --release
 cd ../../../
@@ -125,16 +125,27 @@ architecture setups [here](https://docs.cometbft.com/v0.38/core/validators#valid
 > ❗ Replace  `/home/astria_org` **everywhere below** with the absolute path to
 > your preferred directory. `systemd` requires this to be an absolute path!
 
+#### Get Upgrades File
+
+```bash
+curl -o upgrades.json -s https://raw.githubusercontent.com/astriaorg/networks/main/dawn-1/sequencer/upgrades.json
+mv upgrades.json /home/astria_org/upgrades.json
+```
+
 #### From `/home/astria_org`
 
 > The .env file copied below has other settings you may want to change with
 > regards to general configuration, especially around metrics and logging. It
 > is self-documented.
+>
+> The bash script below uses sed to update the `ASTRIA_SEQUENCER_UPGRADES_FILEPATH`
+> and the `ASTRIA_SEQUENCER_DB_FILEPATH` properties
 
 ```bash
-mkdir /home/astria_org/sequencer-1.0.0-rc.1
-cp ~/astria/target/release/astria-sequencer /home/astria_org/sequencer-1.0.0-rc.1/astria-sequencer
+mkdir /home/astria_org/sequencer-3.0.0-rc.2
+cp ~/astria/target/release/astria-sequencer /home/astria_org/sequencer-3.0.0-rc.2/astria-sequencer
 cp ~/astria/crates/astria-sequencer/local.env.example /home/astria_org/astria-sequencer.env
+sed -i'.bak' 's/"\/path\/to"/"\/home\/astria_org"/g' /home/astria_org/astria-sequencer.env
 mkdir /home/astria_org/astria_db
 sed -i'.bak' 's/"\/tmp\/astria_db"/"\/home\/astria_org\/astria_db"/g' /home/astria_org/astria-sequencer.env
 ```
@@ -197,7 +208,7 @@ Description=astria sequencer
 
 [Service]
 EnvironmentFile=/home/astria_org/astria-sequencer.env
-ExecStart=/home/astria_org/sequencer-1.0.0-rc.1/astria-sequencer
+ExecStart=/home/astria_org/sequencer-3.0.0-rc.2/astria-sequencer
 
 # Restart service on failure
 Restart=on-failure
@@ -316,5 +327,5 @@ has default storage classes.
 ### Install
 
 ```bash
-helm install dawn-1-full-node astria/sequencer --version 1.0.0-rc.1 \
+helm install dawn-1-full-node astria/sequencer --version 3.0.0-rc.2 \
   --namespace astria-dawn-1-node --create-namespace -f full-node-values.yaml
