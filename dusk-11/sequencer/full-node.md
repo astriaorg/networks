@@ -60,7 +60,7 @@ cd ../
 ```bash
 git clone https://github.com/astriaorg/astria.git
 cd astria
-git checkout tags/sequencer-v1.0.0-rc.1
+git checkout tags/sequencer-v3.0.0-rc.2
 cd crates/astria-sequencer/
 cargo build --release
 cd ../../../
@@ -96,10 +96,19 @@ mv genesis.json ~/.cometbft/config/genesis.json
 
 > ❗ Replace  `/home/astria_org` **everywhere below** with the absolute path to your home directory. `systemd` requires this to be an absolute path!
 
+
+### Get Upgrades File
+
+```bash
+curl -o upgrades.json -s https://raw.githubusercontent.com/astriaorg/networks/main/dusk-11/sequencer/upgrades.json
+mv upgrades.json /home/astria_org/upgrades.json
+```
+
 #### From `/home/astria_org`
 
 ```bash
 cp ~/astria/crates/astria-sequencer/local.env.example /home/astria_org/astria-sequencer.env
+sed -i'.bak' 's/"\/path\/to"/"\/home\/astria_org"/g' /home/astria_org/astria-sequencer.env
 mkdir /home/astria_org/astria_db
 sed -i'.bak' 's/"\/tmp\/astria_db"/"\/home\/astria_org\/astria_db"/g' /home/astria_org/astria-sequencer.env
 ```
@@ -232,5 +241,5 @@ has default storage classes.
 ### Install
 
 ```bash
-helm install dusk11-full-node astria/astria-sequencer-validator --version 1.0.0-rc.1 \
+helm install dusk11-full-node astria/astria-sequencer-validator --version 3.0.0-rc.1 \
   --namespace astria-dusk11-node --create-namespace -f full-node-values.yaml
